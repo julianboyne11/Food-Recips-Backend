@@ -13,8 +13,17 @@ const index = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const ingredient = Ingredient.create(req.body)
+    const ingredient = await Ingredient.create(req.body)
     res.status(201).json(ingredient)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+const deleteIngredient = async (req, res) => {
+  try {
+    const deletedIngredient = await Ingredient.findByIdAndDelete(req.params.id)
+    res.status(200).json(deletedIngredient)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -23,4 +32,5 @@ const create = async (req, res) => {
 export {
   index, 
   create,
+  deleteIngredient as delete,
 }

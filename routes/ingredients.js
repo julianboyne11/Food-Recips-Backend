@@ -8,6 +8,7 @@ const router = Router()
 
 router.get("/", ingredientsCtrl.index),
 router.post("/", ingredientsCtrl.create)
+router.delete("/:id", ingredientsCtrl.delete)
 
 /*---------- Protected Routes ----------*/
 
