@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const foodSchema = new Schema({
+const ingredientSchema = new Schema({
   name: String,
   category: { type: String, enum: ["Meat", "Vegetables", "Fruit", "Salumeria"] },
   amount: Number,
@@ -11,6 +11,6 @@ const foodSchema = new Schema({
   timestamps: true,
 })
 
-const Food = mongoose.model('Food', foodSchema)
+const Ingredient = mongoose.model('Ingredient', ingredientSchema)
 
-export { Food }
+export { Ingredient }

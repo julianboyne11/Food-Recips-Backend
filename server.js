@@ -6,7 +6,7 @@ import formData from 'express-form-data'
 
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
-import { router as foodsRouter } from './routes/foods.js'
+import { router as ingredientsRouter } from './routes/ingredients.js'
 
 import './config/database.js'
 
@@ -19,7 +19,7 @@ app.use(formData.parse())
 
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('/foods', foodsRouter)
+app.use('/ingredients', ingredientsRouter)
 
 app.use(function (req, res, next) {
   res.status(404).json({ err: 'Not found' })
