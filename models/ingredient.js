@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const ingredientSchema = new Schema({
   name: String,
-  category: { type: String, enum: ["Meat", "Vegetables", "Fruit", "Salumeria"] },
+  category: { type: String, enum: ["Meat", "Vegetables", "Fruit", "Salumeria", "Pasta"] },
   amount: Number,
   price: Number
 },{

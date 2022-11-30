@@ -1,3 +1,4 @@
+
 import { Ingredient } from "../models/ingredient.js"
 
 const index = async (req, res) => {
@@ -13,8 +14,9 @@ const index = async (req, res) => {
 const create = async (req, res) => {
   try {
     const ingredient = Ingredient.create(req.body)
+    res.status(201).json(ingredient)
   } catch (error) {
-    
+    res.status(500).json(error)
   }
 }
 
