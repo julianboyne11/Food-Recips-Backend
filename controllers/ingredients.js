@@ -29,8 +29,19 @@ const deleteIngredient = async (req, res) => {
   }
 }
 
+const update = async (req, res) => {
+  try {
+    console.log(req.body, "BODY");
+    const updatedIngredient = await Ingredient.findByIdAndUpdate(req.params.id, req.body, {next: true,})
+    res.status(200).json(updatedIngredient)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 export {
   index, 
   create,
   deleteIngredient as delete,
+  update,
 }
