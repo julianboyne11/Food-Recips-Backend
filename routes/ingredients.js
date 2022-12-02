@@ -8,6 +8,7 @@ const router = Router()
 
 router.get("/", ingredientsCtrl.index),
 router.post("/", ingredientsCtrl.create)
+router.get("/:id", ingredientsCtrl.show)
 router.put("/:id", ingredientsCtrl.update)
 router.delete("/:id", ingredientsCtrl.delete)
 

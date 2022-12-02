@@ -31,9 +31,17 @@ const deleteIngredient = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    console.log(req.body, "BODY");
     const updatedIngredient = await Ingredient.findByIdAndUpdate(req.params.id, req.body, {next: true,})
     res.status(200).json(updatedIngredient)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+const show = async (req, res) => {
+  try {
+    const ingredient = await Ingredient.findById(req.params.id)
+    res.status(200).json(ingredient)
   } catch (error) {
     res.status(500).json(error)
   }
@@ -44,4 +52,5 @@ export {
   create,
   deleteIngredient as delete,
   update,
+  show,
 }
